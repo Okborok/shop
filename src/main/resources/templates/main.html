@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="category" type="com.okborok.web.shop.enums.Categories"*/-->
+<!--/*@thymesVar id="categories" type="java.util.List<T(com.okborok.web.shop.enums.Categories)>"*/-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" th:href="@{/css/site.css}"/>
+</head>
+<body>
+<div class="wrapper">
+<div class="row header">
+    <div class="header-menu">
+        <a class="menu-button" th:text="#{view.mainPage}"></a>
+        <a class="menu-button" th:text="#{view.gallery}"></a>
+        <a class="menu-button" th:text="#{view.contacts}" th:href="@{/contact}"></a>
+    </div>
+    <div class="header-logo">
+        <img th:src="@{/images/menu-icon.png}" th:alt="#{view.logo}" th:title="#{view.logo}" height="35"/>
+    </div>
+    <div class="header-login">
+        <a th:text="#{view.login}"></a>
+        <a th:text="#{view.logout}"></a>
+    </div>
+</div>
+<div class="row categories">
+    <div class="category-buttons">
+        <a th:each="category : ${T(com.okborok.web.shop.enums.Categories).values()}" class="menu-button" th:text="${category.name}"></a>
+        <!--a th:each="tile : ${categoryTiles}" class="menu-button" th:styleappend="|background-image:${tile.imgPath}|" th:text="${tile.name}"></a-->
+    </div>
+    <div class="category-search">
+        <input type="search" th:placeholder="#{view.searchPlaceholder}"/>
+        <input type="submit" th:value="#{view.search}"/>
+    </div>
+</div>
+<div class="row middle">
+    <div class="middleText" th:text="#{view.middleText}"></div>
+</div>
+<div class="row">
+    <div class="banner">
+        <img th:src="@{/images/img1.jpg}">
+            <div class="banner-text">Пышная</div>
+        </img>
+    </div>
+    <div class="banner center">
+        <img th:src="@{/images/img1.jpg}">
+        <div class="banner-text">Пышная</div>
+        </img>
+    </div>
+    <div class="banner">
+        <img th:src="@{/images/img1.jpg}">
+        <div class="banner-text">Пышная</div>
+        </img>
+    </div>
+</div>
+</div>
+</body>
+</html>

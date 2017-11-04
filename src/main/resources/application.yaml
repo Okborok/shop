@@ -1,0 +1,32 @@
+liquibase:
+    enabled: false
+    change-log: classpath:liquibase/db.changelog-master.xml
+spring:
+    datasource:
+        password: ${MCVS_DATABASE_PASSWORD:123}
+        url: ${MCVS_DATABASE_URL:jdbc:mysql://localhost:3306/okborok}
+        username: ${MCVS_DATABASE_USERNAME:ok}
+        driver-class-name: com.mysql.jdbc.Driver
+    jpa:
+        hibernate:
+            ddl-auto: validate
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5Dialect
+        show-sql: true
+    thymeleaf:
+        cache: false
+hibernate:
+    c3po:
+        acquireIncrement: 5
+        checkoutTimeout: 12000
+        idleConnectionTestPeriod: 60
+        debugUnreturnedConnectionStackTraces: false
+        maxAdministrativeTaskTime: 0
+        maxPoolSize: 100
+        maxStatements: 50
+        minPoolSize: 10
+        numHelperThreads: 12
+        unreturnedConnectionTimeout: 900
