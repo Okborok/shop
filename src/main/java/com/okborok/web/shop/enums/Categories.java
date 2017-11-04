@@ -1,11 +1,8 @@
 package com.okborok.web.shop.enums;
 
-import lombok.Getter;
-
 /**
  * Created on 02.11.2017.
  */
-@Getter
 public enum Categories {
     WOOD("category.wood"),
     GLASS("category.glass"),
@@ -14,6 +11,10 @@ public enum Categories {
     private String name;
 
     Categories(final String name) {
-        this.name = I18n.getMessage(name);
+        this.name = name;
+    }
+
+    public String getName() {
+        return I18n.getMessage(name);
     }
 }

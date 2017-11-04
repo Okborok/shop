@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="tile" type="com.okborok.web.shop.model.Tile"*/-->
+<!--/*@thymesVar id="cat" type="com.okborok.web.shop.enums.Categories"*/-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" th:href="@{/css/site.css}"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="row header">
+        <div class="header-menu">
+            <a class="menu-button" th:text="#{view.mainPage}"></a>
+            <a class="menu-button" th:text="#{view.gallery}"></a>
+            <a class="menu-button" th:text="#{view.contacts}" th:href="@{/contact}"></a>
+        </div>
+        <div class="header-logo">
+            <img th:src="@{/images/menu-icon.png}" th:alt="#{view.logo}" th:title="#{view.logo}" height="35"/>
+        </div>
+        <div class="header-login">
+            <a th:text="#{view.login}"></a>
+            <a th:text="#{view.logout}"></a>
+        </div>
+    </div>
+    <form th:action="@{/tile/create}" th:object="${tile}" method="post">
+        <div class="row tile">
+            <label>
+                <input th:field="*{id}" th:hidden="true"/>
+            </label>
+            <label th:for="*{title}" th:text="#{view.tileTitle}"></label>
+            <input title="" th:field="*{title}" th:title="#{view.tileTitle}"/>
+        </div>
+        <div class="row tile">
+            <span th:text="#{view.tileCategory}"></span>
+            <label for="category"></label><select id="category" name="category" th:title="#{view.tileCategory}">
+            <option th:each="cat : ${T(com.okborok.web.shop.enums.Categories).values()}"
+                    th:value="${cat}"
+                    th:text="${cat.name}"
+                    th:selected="${cat.equals(category)}"></option>
+        </select>
+        </div>
+        <div class="row tile">
+            <input type="submit" th:value="#{view.tileSubmit}"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
