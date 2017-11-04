@@ -68,4 +68,10 @@ public class HomeController {
         tileRepository.save(tile);
         return "redirect:/";
     }
+
+    @GetMapping("/tile")
+    public String tilesList(final Model model, final Tile tile) {
+        model.addAttribute("tileList", tileRepository.findAll());
+        return "tile/tilesList";
+    }
 }

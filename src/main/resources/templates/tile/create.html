@@ -7,7 +7,7 @@
     <meta name="description" content=""/>
     <link rel="stylesheet" th:href="@{/css/site.css}"/>
 </head>
-<body>
+<body th:width="cats=${T(com.okborok.web.shop.enums.Categories).values()}">
 <div class="wrapper">
     <div class="row header">
         <div class="header-menu">
@@ -34,7 +34,7 @@
         <div class="row tile">
             <span th:text="#{view.tileCategory}"></span>
             <label for="category"></label><select id="category" name="category" th:title="#{view.tileCategory}">
-            <option th:each="cat : ${T(com.okborok.web.shop.enums.Categories).values()}"
+            <option th:each="cat : ${cats}"
                     th:value="${cat}"
                     th:text="${cat.name}"
                     th:selected="${cat.equals(category)}"></option>
