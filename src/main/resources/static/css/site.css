@@ -21,6 +21,7 @@ input {
 
 .row {
     width: 100%;
+    float: left;
 }
 
 /*
@@ -93,6 +94,7 @@ input {
 
 .middle {
     float: left;
+    margin: 20px;
 }
 
 .banner {
@@ -129,5 +131,15 @@ input {
 }
 
 .tile {
+    margin-top: 20px;
+}
 
+.table {
+    float: left;
+    margin-top: 15px;
+    width: 32%;
+}
+
+.table2 {
+    width: 100%;
 }
